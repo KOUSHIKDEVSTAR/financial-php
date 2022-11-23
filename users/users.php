@@ -239,17 +239,12 @@ function transferUser($data,$id)
 }
 function transferUserAccount($data,$id)
 
-{
-    // echo "<pre>";
-    // print_r($data);
-    
+{  
     $newData['ammount'] = $data['0']['withdrawals_ammount'];
     $newData['depositDate'] = $data['0']['withdrawals_date'];
     $newData['withdrawals_ammount'] = "";
     $newData['withdrawals_date'] = "";
     $newDatat[]=$newData;
-    // print_r($newDatat);
-    // exit();
     $accounts = getAccount(); 
     $users = getUsers();
     $accounts[] =  $newData;
@@ -266,8 +261,7 @@ function transferUserAccount($data,$id)
             
         }
     }
-    // print_r($updateUserAccountBalance);
-    // exit();
+ 
     putJson($users);
     return $accounts;
 }
